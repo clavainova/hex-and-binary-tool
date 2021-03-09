@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8">
+    <link href="https://fonts.googleapis.com/css?family=Alatsi|Open+Sans&display=swap" rel="stylesheet">
+    <style>
+        h1 {
+            color: #123456;
+            font-size: 5em;
+            letter-spacing: 0.5em;
+        }
+
+        body {
+            text-align: center;
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        div {
+            min-width: 50vw;
+            min-height: 50vh;
+            background-color: #000000;
+            border-radius: 20px;
+            margin-top: 20px;
+        }
+
+        input {
+            margin-left: 2px;
+        }
+    </style>
+</head>
+
+<body>
+    <article id="hexArticle">
+        <h1>HEX</h1>
+
+        #<input id="hex" /><button onclick="changeColour()">GO</button>
+        <div id="changeblock"></div>
+    </article>
+
+    <article id="binaryArticle">
+        <h1>BINARY</h1>
+        <table>
+            <tr>
+                <th>128</th>
+                <th>64</th>
+                <th>32</th>
+                <th>16</th>
+                <th>8</th>
+                <th>4</th>
+                <th>2</th>
+                <th>1</th>
+            </tr>
+            <tr>
+                <td><input id="128" value="0"></td>
+                <td><input id="64" value="0"></td>
+                <td><input id="32" value="0"></td>
+                <td><input id="16" value="0"></td>
+                <td><input id="8" value="0"></td>
+                <td><input id="4" value="0"></td>
+                <td><input id="2" value="0"></td>
+                <td><input id="1" value="0"></td>
+            </tr>
+        </table>
+        <button onclick="calcBinary()">SUBMIT</button>
+        TOTAL:<h2 id="total"></h2>
+    </article>
+
+
+    <script>
+        //hex
+        function changeColour() {
+            document.getElementById("changeblock").style.backgroundColor = "#" + document.getElementById("hex").value;
+        }
+
+        //binary
+        function calcBinary() {
+            let total = 0;
+            if (document.getElementById("128").value == 1) {
+                total += 128;
+            }
+            if (document.getElementById("64").value == 1) {
+                total += 64;
+            }
+            if (document.getElementById("32").value == 1) {
+                total += 32;
+            }
+            if (document.getElementById("16").value == 1) {
+                total += 16;
+            }
+            if (document.getElementById("8").value == 1) {
+                total += 8;
+            }
+            if (document.getElementById("4").value == 1) {
+                total += 4;
+            }
+            if (document.getElementById("2").value == 1) {
+                total += 2;
+            }
+            if (document.getElementById("1").value == 1) {
+                total += 1;
+            }
+            console.log("excuting value : " + total);
+            document.getElementById("total").innerHTML = total;
+        }
+    </script>
+</body>
+
+</html>
